@@ -12,7 +12,7 @@ node{
                     spec: '''{
                               "files": [
                                  {
-                                  "pattern": "$WORKSPACE/POC/*.war",
+                                  "pattern": "$WORKSPACE/*.war",
                                   "target": "result/",
                                   "recursive": "false"
                                 } 
@@ -36,4 +36,3 @@ node{
 	
 			
 }
-
