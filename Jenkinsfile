@@ -22,7 +22,7 @@ node{
             }
 	stage('Build Docker image')
 				{
-        sh 'docker build -t bhanalliarun/poc:$(buildNumber) .'
+        sh 'docker build -t bhanalliarun/poc:1.0.0 .'
 	    }
 			
 	 stage('Push Docker Image'){
