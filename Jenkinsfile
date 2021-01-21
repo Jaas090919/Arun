@@ -12,7 +12,7 @@ node{
                     spec: '''{
                               "files": [
                                  {
-                                  "pattern": "$WORKSPACE/POC/*.war",
+                                  "pattern": "$WORKSPACE/*.war",
                                   "target": "result/",
                                   "recursive": "false"
                                 } 
@@ -22,7 +22,7 @@ node{
             }
 	stage('Build Docker image')
 				{
-        sh 'docker build -t bhanalliarun/poc:$(buildNumber) .'
+        sh 'docker build -t bhanalliarun/poc:1.0.0 .'
 	    }
 			
 	 stage('Push Docker Image'){
@@ -33,6 +33,9 @@ node{
         }
         sh 'docker push bhanalliarun/poc:1.0.0'
     }
+	stage (Deploy to k8s) {
+	sh 'kubectl apply -f deployment.yml'
+	}
 	
 			
 }
