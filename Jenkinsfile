@@ -37,7 +37,5 @@ node{
 	sh 'kubectl apply -f deployment.yml'
 	}
 	
-	stage (Deploy to k8s) {
-	sh 'kubectl apply -f deployment.yml'
-	}		
+			
 }
