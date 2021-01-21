@@ -33,7 +33,7 @@ node{
         }
         sh 'docker push bhanalliarun/poc:1.0.0'
     }
-	stage (Deploy to k8s) {
+	stage (Dep to k8s) {
 	sh 'kubectl apply -f deployment.yml'
 	}
 	
