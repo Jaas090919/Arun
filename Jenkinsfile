@@ -43,6 +43,7 @@ node{
 		kubeconfigId: 'KUBERNETES_CONFIG',
 		enableConfigSubstitution: true
 		)
-*/	}
+		}
+*/	
 			
 }
