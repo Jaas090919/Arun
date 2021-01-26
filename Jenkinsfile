@@ -33,16 +33,16 @@ node{
         }
         sh 'docker push bhanalliarun/poc:1.0.0'
     }
-/*	stage('Deployment to k8s') {
+	stage('Deployment to k8s') {
 	sh 'kubectl apply -f deployment.yml'
 	}
-*/
-	stage('Deploy to k8s'){
+	
+/*	stage('Deploy to k8s'){
 	kubernetesDeploy(
 		configs: 'deployment.yml',
 		kubeconfigId: 'KUBERNETES_CONFIG',
 		enableConfigSubstitution: true
 		)
-	}
+*/	}
 			
 }
