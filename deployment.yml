@@ -16,9 +16,9 @@ metadata:
 		- name: app
 			image: bhnalliarun/my-poc:1.0.0
 			ports:
-      - name: web
-				containerPort: 3000
-				protocol: TCP
+		- name: web
+			containerPort: 3000
+			protocol: TCP
 ---
 kind: Service
 apiVersion: v1
