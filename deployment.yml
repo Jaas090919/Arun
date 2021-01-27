@@ -5,8 +5,8 @@ metadata:
   namespace: example
 spec:
     selector:
-    matchLabels:
-      app: hello-world
+      matchLabels:
+        app: hello-world
   template:
     metadata:
       labels:
