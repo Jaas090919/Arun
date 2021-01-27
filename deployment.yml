@@ -15,12 +15,12 @@ spec:
       containers:
         - name: hello-world-ctr
           image: bhnalliarun/my-poc:1.0.0
-		  imagePullPolicy: Always
+		imagePullPolicy: Always
           ports:
             - name: web
               containerPort: 3000
               protocol: TCP
-		resources: 
+	resources: 
           limits: 
             cpu: 250m 
             memory: 32Mi
