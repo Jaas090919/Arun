@@ -2,28 +2,23 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-world
-  namespace: example
 spec:
-    selector:
-      matchLabels:
-        app: hello-world
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-world
   template:
     metadata:
       labels:
         app: hello-world
     spec:
       containers:
-        - name: hello-world-ctr
+        - name: app
           image: bhnalliarun/my-poc:1.0.0
-            imagePullPolicy: Always
           ports:
             - name: web
               containerPort: 3000
               protocol: TCP
-    resources: 
-          limits: 
-            cpu: 250m 
-            memory: 32Mi	  
 ---
 
 apiVersion: v1
