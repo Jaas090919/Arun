@@ -1,56 +1,52 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-world
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: hello-world
-  template:
-    metadata:
-      labels:
-        app: hello-world
-    spec:
-      containers:
-        - name: app
-          image: bhnalliarun/my-poc:1.0.0
-          ports:
-            - name: web
-              containerPort: 3000
-              protocol: TCP
+	name: hello-world
+	spec:
+		replicas: 1
+	selector:
+	matchLabels:
+		app: hello-world
+	template:
+	metadata:
+		labels:
+		app: hello-world
+	spec:
+		containers:
+		- name: app
+			image: bhnalliarun/my-poc:1.0.0
+			ports:
+      - name: web
+				containerPort: 3000
+				protocol: TCP
 ---
-
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
-  name: hello-world-svc
-  namespace: example
-
-spec:
-type: LoadBalancer
-selector:
-    app: hello-world
-ports:
-   - name: http
-      protocol: TCP
-    - port: 8080
-      targetPort: web
+	name: hello-world
+	spec:
+	type: LoadBalancer
+	selector:
+	app: hello-world
+	ports:
+	- name: http
+		protocol: TCP
+		port: 8080
+		targetPort: web
 ---
-
 kind: HorizontalPodAutoscaler 
 apiVersion: autoscaling/v2beta1 
 metadata: 
-  name: hello-world 
-spec: 
-maxReplicas: 3
-minReplicas: 1
-scaleTargetRef: 
-    apiVersion: app/v1 
-    kind: Deployment 
-    name: hello-world
-metrics: 
-- type: Resource 
-    resource: 
-      name: cpu 
-      targetAverageUtilization: 70
+	name: hello-world 
+	spec: 
+		maxReplicas: 5
+		minReplicas: 3 
+	scaleTargetRef: 
+	apiVersion: app/v1 
+	kind: Deployment 
+	name: hello-world
+	metrics: 
+	- type: Resource 
+	resource: 
+		name: cpu 
+		targetAverageUtilization: 60
