@@ -34,7 +34,7 @@ node{
         sh 'docker push bhanalliarun/poc:1.0.0'
     }
 	stage('Deployment to k8s') {
-	sh 'kubectl apply -f deployment.yml'
+	sh 'helm install release5 helloworld'
 	}
 	
 /*	stage('Deploy to k8s'){
